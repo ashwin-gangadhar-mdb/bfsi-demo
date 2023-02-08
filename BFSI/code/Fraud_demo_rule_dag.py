@@ -58,7 +58,7 @@ class RuleNMLModelWrapper(mlflow.pyfunc.PythonModel):
         return x['amt']>x['AVG_DLY_AUTHZN_AMT']
 
     def get_mongo_conn(self):
-        MONGO_CONN = "mongodb+srv://venkatesh:ashwin123@bfsi-demo.2wqno.mongodb.net/?retryWrites=true&w=majority"
+        MONGO_CONN = "<connection_string>"
         database="fraud-detection"
         collection="usr_auth_rule_data"
         client = MongoClient(MONGO_CONN)
