@@ -18,7 +18,9 @@ The high level architecture components for implementing the real time fraud dete
 ### Architecture 2
 <img width="1957" alt="image" src="images/FraudDetection - MDB Kafka DB copy.png">
 
-<TODO Kafka integration>
+When it comes to streaming data from MongoDB to Databricks, using Confluent is a popular solution. The process involves utilizing the MongoDB Kafka Source Connector and the Databricks Sink Connector. The Kafka Source Connector enables the extraction of data from MongoDB, and pushes it to a Kafka topic. The Databricks Sink Connector then reads the data from the Kafka topic and writes it to Databricks. The entire process is streamlined and enables near real-time data streaming, making it an efficient and reliable way to move data between the two platforms. By using these connectors together, it's possible to quickly and easily transfer large amounts of data from MongoDB to Databricks, facilitating smooth and efficient data processing. Refer the following documentation for more details.
+- [MongoDB to Confluent using Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-source.html#quick-start)
+- [Confluent to Databricks using Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-databricks-delta-lake-sink/cc-databricks-delta-lake-sink.html#databricks-delta-lake-sink-connector-for-ccloud)
 
  ## Notebooks
  
