@@ -19,7 +19,7 @@ Before running the app, you'll need to have the following installed on your syst
     ```
 
 - Update the MongoDB Connection String in the following file.
-    -`mobile-demo/backend-service/serve.py`
+    - `mobile-demo/backend-service/serve.py`
 
 - Install the project dependencies using pip
     ```
@@ -36,19 +36,19 @@ Before running the app, you'll need to have the following installed on your syst
     git clone https://github.com/ashwin-gangadhar-mdb/bfsi-demo.git
     ```
 - Install the dependencies using npm or Yarn.
-```bash
-cd mobile-demo
-npm install
-```
-OR
-```bash
-cd mobile-demo
-yarn install
-```
+    ```bash
+    cd mobile-demo
+    npm install
+    ```
+    OR
+    ```bash
+    cd mobile-demo
+    yarn install
+    ```
 
 - Update the API credentials and Endpoints in the following location
-    -`mobile-demo/react-native-app/src/screens/LoginScreen.js`
-    -`mobile-demo/react-native-app/src/screens/TransactionScreen.js`
+    - `mobile-demo/react-native-app/src/screens/LoginScreen.js`
+    - `mobile-demo/react-native-app/src/screens/TransactionScreen.js`
 
 - Start the React Native Metro Bundler in a separate terminal window.
 ```bash
