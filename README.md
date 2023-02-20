@@ -7,7 +7,7 @@ DEMO VIDEO :
  Fraud prevention in the banking and financial services industry is the process of identifying, preventing and mitigating fraudulent activities to protect customers' assets and the financial institution's reputation. Banks and other financial institutions are particularly vulnerable to fraud because they handle large amounts of sensitive financial information and transactions.
 
 ### Architecture 1
-<img width="1957" alt="image" src="images/Draft of FraudDetection - Whitepaper.png">
+<img width="1957" alt="image" src="images/Kafka_variation_bfsi_story.drawio.png">
 
 The high level architecture components for implementing the real time fraud detection model is as below:
 1. Producer apps & SQL data source : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
@@ -28,7 +28,7 @@ When it comes to streaming data from MongoDB to Databricks, using Confluent is a
 
 * Trains and Registers a Model based on Rules 
 
-   #### BFSI/notebooks/Fraud_demo_rule_dag.ipynb
+   [Fraud_demo_rule_dag.ipynb](BFSI/notebooks/Fraud_demo_rule_dag.ipynb)
 
 * Trains and Registers a Model based on Classification using XGB.
  
