@@ -43,11 +43,11 @@ When it comes to streaming data from MongoDB to Databricks, using Confluent is a
 
 * Load Realtime data from mongodb > extract features > write to mongodb
 
-   [Fraud_demo_streaming.ipynb]BFSI/notebooks/Fraud_demo_streaming.ipynb
+   [Fraud_demo_streaming.ipynb](BFSI/notebooks/Fraud_demo_streaming.ipynb)
 
 * Load one time batch data incrementally to train model
 
-  [Fraud_demo_data_transform.ipynb]BFSI/notebooks/Fraud_demo_data_transform.ipynb
+  [Fraud_demo_data_transform.ipynb](BFSI/notebooks/Fraud_demo_data_transform.ipynb)
  
  
   ## Training ML Models using Databricks/ML flow/Feature store
@@ -89,7 +89,7 @@ Rule Model Execution Flow
 #### Create Workflows
 
 Create two workflows one for model training activity and second for realtime processing of transactions. The second workflows are continously running jobs whereas the model training worflow is scheduled to run at regular intervals.
-Follow steps in link to create new worflow: https://docs.databricks.com/workflows/jobs/jobs-quickstart.html
+[Follow steps in link to create new worflow](https://docs.databricks.com/workflows/jobs/jobs-quickstart.html)
 
 Once successfully created workflow will look as follows
 Model training workflow
@@ -132,7 +132,7 @@ A simple python program to simulate the Transaction of record being inserted eve
 
 ### Model REST Endpoints
 
-DEMO : https://youtu.be/Gig3Yn2QG1c
+[DEMO](https://youtu.be/Gig3Yn2QG1c)
 
 Databricks can serve the models as REST endpoints. The Models are setup in a cluster. The size of which can be changed by the user based on the need.
 Below is a snapshot of the REST Endpoint exposed in a m5.xa.large cluster.
@@ -153,7 +153,7 @@ The rule model registered in the model registry is exposed as REST endpoints as 
 
 A Simple javascript program writtien as function under MongoDB Atlas App services to listen to the transactions features collections using set Atlas triggers. Once triggered the trigger invoke the rule model REST API's exposed and update the fraud_detection.txn_status collection. 
 
-Setting Atlas triggers (https://www.mongodb.com/docs/atlas/triggers/)
+[Setting Atlas triggers](https://www.mongodb.com/docs/atlas/triggers/)
 The Code to trigger function used in this demo
 <img width="1224" alt="image" src="images/atlas_trigger_fn.png">
 
