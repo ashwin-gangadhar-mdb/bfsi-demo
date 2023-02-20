@@ -6,17 +6,20 @@ DEMO VIDEO :
 ### Introduction
  Fraud prevention in the banking and financial services industry is the process of identifying, preventing and mitigating fraudulent activities to protect customers' assets and the financial institution's reputation. Banks and other financial institutions are particularly vulnerable to fraud because they handle large amounts of sensitive financial information and transactions.
 
+ The approch taken to solve the above use case heavily relies on stream processing. We have provided this git to process the transaction using MDB spark streaming connector as in [Architecture 1](#architecture-1). Also we present an alternative approach using confluent and kafka stream for processing stream data in [Architecture 2](#architecture-2)(No code provided for the same in this git hub)
+
 ### Architecture 1
 <img width="1957" alt="image" src="images/Kafka_variation_bfsi_story.drawio.png">
 
 The high level architecture components for implementing the real time fraud detection model is as below:
-1. Producer apps & SQL data source : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
-2. MongoDB Atlas: Atlas serves as the core persistence layer and stores the raw transactions, the transactions flagged as fraud as well customer demographics
-3. Fraud detection layer on Databricks: The core fraud detection algorithm is a reference notebook provided by Databricks. MLFlow has been used to manage the MLOps for this model. The trained model is available as a REST endpoint. The model is also operating on a Delta live table to provide batch/ real time predictive analytics. Deltalake has been used as the persistence on Databricks
+1. [Producer apps & SQL data source](/mobile-demo/backend-service/serve.py) : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
+2. [MongoDB Atlas](#collections): Atlas serves as the core persistence layer and stores the raw transactions, the transactions flagged as fraud as well as customer demographics information.
+3. [Fraud detection layer on Databricks](#notebooks): The core fraud detection algorithm is a reference notebook provided by Databricks. MLFlow has been used to manage the MLOps for this model. The trained model is available as a REST endpoint. The model is also operating on a Delta live table to provide batch/ real time predictive analytics. Deltalake has been used as the persistence on Databricks
+4. [MongoDB Atlas Appservices](#atlas-trigger-function): Altas Appservice help manager the trigger function to listen to the featurized transaction collection and tag the transactions in realtime by invoking the AI/ML REST endpoint in Databricks.
 
 
 ### Architecture 2
-<img width="1957" alt="image" src="images/FraudDetection - MDB Kafka DB copy.png">
+<img width="1957" alt="image" src="images/Kafka_variation_bfsi_story.drawio.png">
 
 When it comes to streaming data from MongoDB to Databricks, using Confluent is a popular solution. The process involves utilizing the MongoDB Kafka Source Connector and the Databricks Sink Connector. The Kafka Source Connector enables the extraction of data from MongoDB, and pushes it to a Kafka topic. The Databricks Sink Connector then reads the data from the Kafka topic and writes it to Databricks. The entire process is streamlined and enables near real-time data streaming, making it an efficient and reliable way to move data between the two platforms. By using these connectors together, it's possible to quickly and easily transfer large amounts of data from MongoDB to Databricks, facilitating smooth and efficient data processing. Refer the following documentation for more details.
 - [MongoDB to Confluent using Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-source.html#quick-start)
@@ -32,7 +35,7 @@ When it comes to streaming data from MongoDB to Databricks, using Confluent is a
 
 * Trains and Registers a Model based on Classification using XGB.
  
-   #### BFSI/notebooks/Fraud_demo_model_training.ipynb
+   [Fraud_demo_model_training.ipynb](BFSI/notebooks/Fraud_demo_model_training.ipynb)
  
  <img width="1957" alt="image" src="images/db-registerd-models.png">
 
@@ -40,11 +43,11 @@ When it comes to streaming data from MongoDB to Databricks, using Confluent is a
 
 * Load Realtime data from mongodb > extract features > write to mongodb
 
-   #### BFSI/notebooks/Fraud_demo_streaming.ipynb
+   [Fraud_demo_streaming.ipynb]BFSI/notebooks/Fraud_demo_streaming.ipynb
 
 * Load one time batch data incrementally to train model
 
-   #### BFSI/notebooks/Fraud_demo_data_transform.ipynb
+  [Fraud_demo_data_transform.ipynb]BFSI/notebooks/Fraud_demo_data_transform.ipynb
  
  
   ## Training ML Models using Databricks/ML flow/Feature store
