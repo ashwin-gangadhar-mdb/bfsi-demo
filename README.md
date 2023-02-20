@@ -83,7 +83,7 @@ Example view of rule collection
 <img width="1901" alt="image" src="images/rule_collection.png">
 
 Rule Model Execution Flow
-<img width="1901" alt="image" src="images/bfsi_rule_model_flow.drawio.png">
+<img width="640" alt="image" src="images/bfsi-rule-model-flow.drawio.png">
 
 
 #### Create Workflows
