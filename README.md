@@ -9,7 +9,7 @@ DEMO VIDEO :
  The approch taken to solve the above use case heavily relies on stream processing. We have provided this git to process the transaction using MDB spark streaming connector as in [Architecture 1](#architecture-1). Also we present an alternative approach using confluent and kafka stream for processing stream data in [Architecture 2](#architecture-2)(No code provided for the same in this git hub)
 
 ### Architecture 1
-<img width="1957" alt="image" src="images/Kafka_variation_bfsi_story.drawio.png">
+<img width="1957" alt="image" src="images/Draft of FraudDetection - Whitepaper.png">
 
 The high level architecture components for implementing the real time fraud detection model is as below:
 1. [Producer apps & SQL data source](/mobile-demo/backend-service/serve.py) : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
