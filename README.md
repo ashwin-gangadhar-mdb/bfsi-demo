@@ -12,18 +12,20 @@ DEMO VIDEO :
 <img width="1957" alt="image" src="images/Draft of FraudDetection - Whitepaper.png">
 
 The high level architecture components for implementing the real time fraud detection model is as below:
-1. [Producer apps & SQL data source](/mobile-demo/backend-service/serve.py) : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
-2. [MongoDB Atlas](#collections): Atlas serves as the core persistence layer and stores the raw transactions, the transactions flagged as fraud as well as customer demographics information.
-3. [Fraud detection layer on Databricks](#notebooks): The core fraud detection algorithm is a reference notebook provided by Databricks. MLFlow has been used to manage the MLOps for this model. The trained model is available as a REST endpoint. The model is also operating on a Delta live table to provide batch/ real time predictive analytics. Deltalake has been used as the persistence on Databricks
-4. [MongoDB Atlas Appservices](#atlas-trigger-function): Altas Appservice help manager the trigger function to listen to the featurized transaction collection and tag the transactions in realtime by invoking the AI/ML REST endpoint in Databricks.
+- [Producer apps & SQL data source](/mobile-demo/backend-service/serve.py) : The producer app is a simulator that mimics generation of transactions. The SQL source has been included as a sample operational data source that holds customer demographics
+- [MongoDB Atlas](#collections): Atlas serves as the core persistence layer and stores the raw transactions, the transactions flagged as fraud as well as customer demographics information.
+- [Fraud detection layer on Databricks](#notebooks): The core fraud detection algorithm is a reference notebook provided by Databricks. MLFlow has been used to manage the MLOps for this model. The trained model is available as a REST endpoint. The model is also operating on a Delta live table to provide batch/ real time predictive analytics. Deltalake has been used as the persistence on Databricks
+- [MongoDB Atlas Appservices](#atlas-trigger-function): Altas Appservice help manager the trigger function to listen to the featurized transaction collection and tag the transactions in realtime by invoking the AI/ML REST endpoint in Databricks.
 
 
 ### Architecture 2
 <img width="1957" alt="image" src="images/Kafka_variation_bfsi_story.drawio.png">
 
-When it comes to streaming data from MongoDB to Databricks, using Confluent is a popular solution. The process involves utilizing the MongoDB Kafka Source Connector and the Databricks Sink Connector. The Kafka Source Connector enables the extraction of data from MongoDB, and pushes it to a Kafka topic. The Databricks Sink Connector then reads the data from the Kafka topic and writes it to Databricks. The entire process is streamlined and enables near real-time data streaming, making it an efficient and reliable way to move data between the two platforms. By using these connectors together, it's possible to quickly and easily transfer large amounts of data from MongoDB to Databricks, facilitating smooth and efficient data processing. Refer the following documentation for more details.
-- [MongoDB to Confluent using Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-source.html#quick-start)
-- [Confluent to Databricks using Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-databricks-delta-lake-sink/cc-databricks-delta-lake-sink.html#databricks-delta-lake-sink-connector-for-ccloud)
+In this architecture, Kafka is utilized as an alternative solution for transferring and streaming data from various source and used for model management.
+
+- [Confluent/Kafka](): Data is generated from various sources, including customer transactions and demographics, merchant information, and training data. This data is processed and transferred to Confluent, which writes it to different Kafka topics. Kafka is used for its durability, scalability, and fault-tolerance, ensuring that data is stored securely and can be accessed reliably. MongoDB Atlas uses the Kafka sink connector to persist the data, allowing businesses to gain valuable insights and make informed decisions.
+
+- [Transaction Prediction Service](): This is a middleware which uses persisted data in MongoDB for model management, enabling organizations to make predictions and gain insights based on the data. This service streamlines workflows and optimizes decision-making processes, helping businesses stay ahead of the curve.
 
  ## Notebooks
  
