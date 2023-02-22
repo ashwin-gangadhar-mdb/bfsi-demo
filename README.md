@@ -23,7 +23,10 @@ The high level architecture components for implementing the real time fraud dete
 
 In this architecture, Kafka is utilized as an alternative solution for transferring and streaming data from various source and used for model management.
 
-- **Confluent/Kafka**: Data is generated from various sources, including customer transactions and demographics, merchant information, and training data. This data is processed and transferred to Confluent, which writes it to different Kafka topics. Kafka is used for its durability, scalability, and fault-tolerance, ensuring that data is stored securely and can be accessed reliably. MongoDB Atlas uses the Kafka sink connector to persist the data, allowing businesses to gain valuable insights and make informed decisions.
+- **Confluent/Kafka**: Data is generated from various sources, including customer transactions and demographics, merchant information, and training data. This data is processed and transferred to Confluent, which writes it to different Kafka topics. Kafka is used for its durability, scalability, and fault-tolerance, ensuring that data is stored securely and can be accessed reliably. MongoDB Atlas uses the Kafka sink connector to persist the data, allowing businesses to gain valuable insights and make informed decisions. Refer the following documentation for more details on Kafka connectors available for MongoDb and Databricks.
+   - [Confluent to MongoDB using Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-sink.html#quick-start)
+   - [MongoDB to Confluent using Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-mongo-db-source.html#quick-start)
+   - [Confluent to Databricks using Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-databricks-delta-lake-sink/cc-databricks-delta-lake-sink.html#databricks-delta-lake-sink-connector-for-ccloud)
 
 - **Transaction Prediction Service**: This is a middleware which uses persisted data in MongoDB for model management, enabling organizations to make predictions and gain insights based on the data. This service streamlines workflows and optimizes decision-making processes, helping businesses stay ahead of the curve.
 
