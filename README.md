@@ -21,7 +21,7 @@ The high level architecture components for implementing the real time fraud dete
 
 
 ### Architecture 2
-<img width="1957" alt="image" src="https://drive.google.com/file/d/11_4XYHtgTJjw5REP8JfmfBvMciVtPiWs/view?usp=share_link">
+<iframe src="https://drive.google.com/file/d/11_4XYHtgTJjw5REP8JfmfBvMciVtPiWs/preview" width="640" height="480" allow="autoplay"></iframe>
 
 In this architecture, Kafka is utilized as an alternative solution for transferring and streaming data from various source and used for model management.
 
