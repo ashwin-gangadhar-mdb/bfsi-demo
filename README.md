@@ -1,6 +1,6 @@
 # Fraud Detection 
 
-DEMO VIDEO : 
+DEMO VIDEO : https://drive.google.com/file/d/1_6YDqa-G6f9koklkF4l-gUpWczeDHJiu/view?usp=share_link
 
 
 ### Introduction
